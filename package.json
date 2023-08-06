@@ -8,14 +8,17 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack .",
-    "format": "npx prettier --write .",
-    "start": "webpack-dev-server ."
+    "format": "npx prettier --write src/**/*.{js,ts,tsx}",
+    "start": "webpack-dev-server .",
+    "test": "jest"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "es5"
   },
   "dependencies": {
-    "@types/jest": "^29.5.3",
-    "@types/node": "^20.4.6",
-    "@types/react": "^18.2.18",
-    "@types/react-dom": "^18.2.7",
     "bootstrap": "^5.3.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
@@ -27,10 +30,16 @@
     "@babel/core": "^7.22.6",
     "@babel/preset-env": "^7.22.6",
     "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@testing-library/dom": "^9.3.1",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.6",
+    "@types/react": "^18.2.18",
+    "@types/react-dom": "^18.2.7",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
+    "jest": "^29.6.2",
     "prettier": "3.0.0",
     "style-loader": "^3.3.3",
     "webpack": "^5.88.1",
