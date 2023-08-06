@@ -1,4 +1,4 @@
-import { deleteMatch } from './delete'
+import { deleteMatch } from './delete';
 
 describe('updateMatch', () => {
   it('should delete the last item by id', () => {
@@ -14,8 +14,8 @@ describe('updateMatch', () => {
         ],
         'some id'
       )
-    ).toEqual([])
-  })
+    ).toEqual([]);
+  });
 
   it('should delete an item', () => {
     expect(
@@ -56,8 +56,8 @@ describe('updateMatch', () => {
         homeTeam: { name: 'Last Land One', score: 0 },
         awayTeam: { name: 'Last Land Two', score: 0 },
       },
-    ])
-  })
+    ]);
+  });
 
   it('should return an equal array if id is not actual', () => {
     const initArray = [
@@ -67,13 +67,13 @@ describe('updateMatch', () => {
         homeTeam: { name: 'Land One', score: 0 },
         awayTeam: { name: 'Land Two', score: 0 },
       },
-    ]
+    ];
     expect(
       deleteMatch(
         initArray,
 
         'fake id'
       )
-    ).toEqual(initArray)
-  })
-})
+    ).toEqual(initArray);
+  });
+});

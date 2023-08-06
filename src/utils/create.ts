@@ -1,5 +1,5 @@
-import { IMatch, IMatchListEntry } from '../types/types'
-import { getTimeStr } from './get-time-str'
+import { IMatch, IMatchListEntry } from '../types/types';
+import { getTimeStr } from './get-time-str';
 
 export const createMatch = (
   list: IMatchListEntry[],
@@ -12,5 +12,5 @@ export const createMatch = (
       ...item,
     },
     ...list,
-  ]
-}
+  ];
+};

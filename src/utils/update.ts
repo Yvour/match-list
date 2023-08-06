@@ -1,4 +1,4 @@
-import { IMatch, IMatchListEntry } from '../types/types'
+import { IMatch, IMatchListEntry } from '../types/types';
 
 export const updateMatch = (
   list: IMatchListEntry[],
@@ -10,7 +10,7 @@ export const updateMatch = (
       return {
         ...listItem,
         ...updatedItem,
-      }
-    } else return listItem
-  })
-}
+      };
+    } else return listItem;
+  });
+};

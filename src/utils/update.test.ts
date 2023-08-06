@@ -1,4 +1,4 @@
-import { updateMatch } from './update'
+import { updateMatch } from './update';
 
 describe('updateMatch', () => {
   it('should update an item by id', () => {
@@ -25,8 +25,8 @@ describe('updateMatch', () => {
         id: 'some id',
         startTime: 'some time',
       },
-    ])
-  })
+    ]);
+  });
 
   it('should update an item by id in filled array', () => {
     expect(
@@ -76,8 +76,8 @@ describe('updateMatch', () => {
         homeTeam: { name: 'Last Land One', score: 0 },
         awayTeam: { name: 'Last Land Two', score: 0 },
       },
-    ])
-  })
+    ]);
+  });
 
   it('should return an equal array if id is not actual', () => {
     const initArray = [
@@ -87,7 +87,7 @@ describe('updateMatch', () => {
         homeTeam: { name: 'Land One', score: 0 },
         awayTeam: { name: 'Land Two', score: 0 },
       },
-    ]
+    ];
     expect(
       updateMatch(
         initArray,
@@ -98,6 +98,6 @@ describe('updateMatch', () => {
         },
         'fake id'
       )
-    ).toEqual(initArray)
-  })
-})
+    ).toEqual(initArray);
+  });
+});

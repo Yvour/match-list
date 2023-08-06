@@ -1,14 +1,14 @@
 export interface ITeamRecord {
-  name: string
-  score: number
+  name: string;
+  score: number;
 }
 
 export interface IMatch {
-  homeTeam: ITeamRecord
-  awayTeam: ITeamRecord
+  homeTeam: ITeamRecord;
+  awayTeam: ITeamRecord;
 }
 
 export interface IMatchListEntry extends IMatch {
-  id: string
-  startTime: string
+  id: string;
+  startTime: string;
 }

@@ -1,3 +1,3 @@
 export const getTimeStr = (): string => {
-  return new Date().toISOString()
-}
+  return new Date().toISOString();
+};

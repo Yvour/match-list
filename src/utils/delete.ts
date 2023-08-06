@@ -1,8 +1,8 @@
-import { IMatchListEntry } from '../types/types'
+import { IMatchListEntry } from '../types/types';
 
 export const deleteMatch = (
   list: IMatchListEntry[],
   id: string
 ): IMatchListEntry[] => {
-  return list.filter((matchItem) => matchItem.id !== id)
-}
+  return list.filter((matchItem) => matchItem.id !== id);
+};

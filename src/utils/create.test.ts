@@ -1,11 +1,11 @@
-import { createMatch } from './create'
+import { createMatch } from './create';
 
-const TIME_COST = 'TIME_COST'
+const TIME_COST = 'TIME_COST';
 jest.mock('./get-time-str', () => {
   return {
     getTimeStr: () => TIME_COST,
-  }
-})
+  };
+});
 
 describe('createMatch', () => {
   it('should add an item to empty array', () => {
@@ -21,8 +21,8 @@ describe('createMatch', () => {
         id: 'Land One - Land Two',
         startTime: TIME_COST,
       },
-    ])
-  })
+    ]);
+  });
 
   it('should add an item to filled array', () => {
     expect(
@@ -67,6 +67,6 @@ describe('createMatch', () => {
         homeTeam: { name: 'Last Land One', score: 0 },
         awayTeam: { name: 'Last Land Two', score: 0 },
       },
-    ])
-  })
-})
+    ]);
+  });
+});

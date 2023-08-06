@@ -1,5 +1,5 @@
-import { IMatchListEntry } from '../types/types'
+import { IMatchListEntry } from '../types/types';
 
 export const summarize = (list: IMatchListEntry[]): IMatchListEntry[] => {
-  return list
-}
+  return list;
+};
