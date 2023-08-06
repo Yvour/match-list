@@ -4,5 +4,5 @@ export const deleteMatch = (
   list: IMatchListEntry[],
   id: string
 ): IMatchListEntry[] => {
-  return list
+  return list.filter((matchItem) => matchItem.id !== id)
 }

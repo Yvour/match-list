@@ -12,10 +12,6 @@ describe('updateMatch', () => {
             awayTeam: { name: 'Land Two', score: 0 },
           },
         ],
-        {
-          homeTeam: { name: 'Land One', score: 0 },
-          awayTeam: { name: 'Land Two', score: 1 },
-        },
         'some id'
       )
     ).toEqual([])
@@ -44,10 +40,6 @@ describe('updateMatch', () => {
             awayTeam: { name: 'Last Land Two', score: 0 },
           },
         ],
-        {
-          homeTeam: { name: 'Land One', score: 0 },
-          awayTeam: { name: 'Land Two', score: 1 },
-        },
         'some id'
       )
     ).toEqual([
@@ -80,10 +72,6 @@ describe('updateMatch', () => {
       deleteMatch(
         initArray,
 
-        {
-          homeTeam: { name: 'Land One', score: 0 },
-          awayTeam: { name: 'Land Two', score: 1 },
-        },
         'fake id'
       )
     ).toEqual(initArray)
