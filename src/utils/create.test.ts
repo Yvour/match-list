@@ -1,11 +1,16 @@
-import { addMatch } from './add'
+import { createMatch } from './create'
 
 const TIME_COST = 'TIME_COST'
+jest.mock('./get-time-str', () => {
+    return {
+        getTimeStr: () => TIME_COST,
+    }
+})
 
 describe('addMatch', () => {
     it('should add an item to empty array', () => {
         expect(
-            addMatch([], {
+            createMatch([], {
                 homeTeam: { name: 'Land One', score: 0 },
                 awayTeam: { name: 'Land Two', score: 0 },
             })
