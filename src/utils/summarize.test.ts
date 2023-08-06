@@ -16,7 +16,7 @@ describe('summarize', () => {
     expect(summarize([matchItem])).toEqual([matchItem]);
   });
 
-  it('should return an array sorted by total score', () => {
+  it('should return an array sorted by total score and not to change original array', () => {
     const matchOne = {
       id: 'some id',
       startTime: 'some time',
@@ -37,12 +37,9 @@ describe('summarize', () => {
       homeTeam: { name: 'some team 1', score: 3 },
       awayTeam: { name: 'some team 2', score: 3 },
     };
-
-    expect(summarize([matchOne, matchTwo, matchThree])).toEqual([
-      matchTwo,
-      matchThree,
-      matchOne,
-    ]);
+    const originalArray = [matchOne, matchTwo, matchThree];
+    expect(summarize(originalArray)).toEqual([matchTwo, matchThree, matchOne]);
+    expect(originalArray).toEqual([matchOne, matchTwo, matchThree]);
   });
 
   it('should return by sorted startTime if the total score is the same score (the recently started match first)', () => {
