@@ -2,8 +2,15 @@ import { IMatch, IMatchListEntry } from '../types/types'
 
 export const updateMatch = (
   list: IMatchListEntry[],
-  item: IMatch,
+  updatedItem: IMatch,
   id: string
 ): IMatchListEntry[] => {
-  return list
+  return list.map((listItem) => {
+    if (listItem.id === id) {
+      return {
+        ...listItem,
+        ...updatedItem,
+      }
+    } else return listItem
+  })
 }

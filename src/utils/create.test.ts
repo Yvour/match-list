@@ -7,7 +7,7 @@ jest.mock('./get-time-str', () => {
   }
 })
 
-describe('addMatch', () => {
+describe('createMatch', () => {
   it('should add an item to empty array', () => {
     expect(
       createMatch([], {
