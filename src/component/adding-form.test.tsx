@@ -11,8 +11,7 @@ describe('AddingForm', () => {
     jest.clearAllMocks();
   });
   it('should render two inputs and two buttons', () => {
-    <AddingForm onSubmit={mockedOnSubmit} />;
-
+    render(<AddingForm onSubmit={mockedOnSubmit} />);
     expect(
       screen.getByLabelText('Home Team', { selector: 'input' })
     ).toBeInTheDocument();

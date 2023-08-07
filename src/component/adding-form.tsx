@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { IMatchListEntry } from '../types/types';
 
 interface Interface {
   onSubmit: (awayTeamName: string, homeTeamName: string) => void;
@@ -7,5 +6,18 @@ interface Interface {
 }
 
 export const AddingForm = (props: IAddingFormProps) => {
-  return null;
+  return (
+    <div>
+      <label>
+        Home Team
+        <input aria-label="Home Team" type="text" />
+      </label>
+      <label>
+        Away Team
+        <input type="text" />
+      </label>
+      <button>Cancel</button>
+      <button>Submit</button>
+    </div>
+  );
 };
