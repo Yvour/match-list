@@ -6,8 +6,8 @@ import { IMatchListEntry } from '../types/types';
 
 const mockedOnSubmit = jest.fn();
 const mockedOnCancel = jest.fn();
-const HOME_TEAM_NAME = 'HOMETEAMNAME___(';
-const AWAY_TEAM_NAME = 'AWAYTEAMNAME=====';
+const HOME_TEAM_NAME = 'HOMETEAMNAME';
+const AWAY_TEAM_NAME = 'AWAYTEAMNAME';
 
 const MATCH_ENTRY: IMatchListEntry = {
   id: 'test id',
@@ -44,7 +44,11 @@ describe('UpdatingForm', () => {
 
   it('should call handler if `Cancel` cliked', () => {
     render(
-      <UpdatingForm onSubmit={mockedOnSubmit} onCancel={mockedOnCancel} />
+      <UpdatingForm
+        onSubmit={mockedOnSubmit}
+        onCancel={mockedOnCancel}
+        matchEntry={MATCH_ENTRY}
+      />
     );
     const button = screen.getByRole('button', { name: 'Cancel' });
 
@@ -55,7 +59,11 @@ describe('UpdatingForm', () => {
 
   it('should allow to ender values and send them via submit handler', () => {
     render(
-      <UpdatingForm onSubmit={mockedOnSubmit} onCancel={mockedOnCancel} />
+      <UpdatingForm
+        onSubmit={mockedOnSubmit}
+        onCancel={mockedOnCancel}
+        matchEntry={MATCH_ENTRY}
+      />
     );
 
     const homeInput = screen.getByLabelText('Home Team Score', {
