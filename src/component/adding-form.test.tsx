@@ -11,7 +11,7 @@ describe('AddingForm', () => {
     jest.clearAllMocks();
   });
   it('should render two inputs and two buttons', () => {
-    render(<AddingForm onSubmit={mockedOnSubmit} />);
+    render(<AddingForm onSubmit={mockedOnSubmit} onCancel={mockedOnCancel} />);
     expect(
       screen.getByLabelText('Home Team', { selector: 'input' })
     ).toBeInTheDocument();
@@ -23,6 +23,7 @@ describe('AddingForm', () => {
   });
 
   it('should call handler if `Cancel` cliked', () => {
+    render(<AddingForm onSubmit={mockedOnSubmit} onCancel={mockedOnCancel} />);
     const button = screen.getByRole('button', { name: 'Cancel' });
 
     fireEvent.click(button);

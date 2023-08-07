@@ -5,7 +5,7 @@ interface Interface {
   onCancel: () => void;
 }
 
-export const AddingForm = (props: IAddingFormProps) => {
+export const AddingForm = ({ onCancel }: IAddingFormProps) => {
   return (
     <div>
       <label>
@@ -16,7 +16,7 @@ export const AddingForm = (props: IAddingFormProps) => {
         Away Team
         <input type="text" />
       </label>
-      <button>Cancel</button>
+      <button onClick={onCancel}>Cancel</button>
       <button>Submit</button>
     </div>
   );
