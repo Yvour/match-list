@@ -30,4 +30,26 @@ describe('AddingForm', () => {
     expect(mockedOnCancel).toBeCalledTimes(1);
     expect(mockedOnSubmit).toBeCalledTimes(0);
   });
+
+  it('should allow to ender values and send them via submit handler', () => {
+    render(<AddingForm onSubmit={mockedOnSubmit} onCancel={mockedOnCancel} />);
+
+    const homeInput = screen.getByLabelText('Home Team', { selector: 'input' });
+
+    fireEvent.change(homeInput, { target: { value: 'Team one' } });
+
+    const awayInput = screen.getByLabelText('Away Team', { selector: 'input' });
+
+    fireEvent.change(awayInput, { target: { value: 'Team Two' } });
+
+    const button = screen.getByRole('button', { name: 'Submit' });
+
+    fireEvent.click(button);
+    expect(mockedOnCancel).toBeCalledTimes(0);
+    expect(mockedOnSubmit).toBeCalledTimes(1);
+    expect(mockedOnSubmit).toBeCalledWith({
+      homeTeamName: 'Team one',
+      awayTeamName: 'Team Two',
+    });
+  });
 });

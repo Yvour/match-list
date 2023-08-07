@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface Interface {
-  onSubmit: (awayTeamName: string, homeTeamName: string) => void;
+  onSubmit: ({ awayTeamName: string, homeTeamName: string }) => void;
   onCancel: () => void;
 }
 
