@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { IMatchListEntry } from '../types/types';
 import { MatchTable } from './match-table';
 
@@ -25,12 +25,49 @@ const MATCH_C: IMatchListEntry = {
 };
 
 const LIST = [MATCH_A, MATCH_B, MATCH_C];
+const mockedUpdateButtonClick = jest.fn();
+const mockedDeleteButtonClick = jest.fn();
 
 describe('MatchTable', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
   it('should render table', () => {
     render(<MatchTable list={LIST} />);
 
     expect(screen.getAllByRole('row')).toHaveLength(3);
     expect(screen.getAllByRole('button')).toHaveLength(6);
+  });
+
+  it('should set handlers for delete', () => {
+    render(
+      <MatchTable
+        list={LIST}
+        onDeleteButtonClick={mockedDeleteButtonClick}
+        onUpdateButtonClick={mockedUpdateButtonClick}
+      />
+    );
+
+    const deleteButtons = screen.getAllByRole('button', { name: 'Delete' });
+    fireEvent.click(deleteButtons[1]);
+    expect(mockedUpdateButtonClick).toBeCalledTimes(0);
+    expect(mockedDeleteButtonClick).toBeCalledTimes(1);
+    expect(mockedDeleteButtonClick).toBeCalledWith('b');
+  });
+
+  it('should set handlers for update', () => {
+    render(
+      <MatchTable
+        list={LIST}
+        onDeleteButtonClick={mockedDeleteButtonClick}
+        onUpdateButtonClick={mockedUpdateButtonClick}
+      />
+    );
+
+    const deleteButtons = screen.getAllByRole('button', { name: 'Update' });
+    fireEvent.click(deleteButtons[1]);
+    expect(mockedDeleteButtonClick).toBeCalledTimes(0);
+    expect(mockedUpdateButtonClick).toBeCalledTimes(1);
+    expect(mockedUpdateButtonClick).toBeCalledWith(MATCH_B);
   });
 });
