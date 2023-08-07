@@ -15,11 +15,11 @@ export const MatchRow = ({
   const { homeTeam, awayTeam, id } = matchItem;
   const updateButtonHandler = React.useCallback(() => {
     onUpdateButtonClick(matchItem);
-  }, [matchItem]);
+  }, [matchItem, onUpdateButtonClick]);
 
   const deleteButtonHandler = React.useCallback(() => {
     onDeleteButtonClick(id);
-  }, [id]);
+  }, [id, onDeleteButtonClick]);
 
   return (
     <tr>
