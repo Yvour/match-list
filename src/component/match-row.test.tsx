@@ -24,7 +24,17 @@ describe('MatchRow', () => {
     jest.clearAllMocks();
   });
   it('should render team names and scores', () => {
-    render(<MatchRow matchItem={TEST_MATCH_ITEM} />);
+    render(
+      <table>
+        <tbody>
+          <MatchRow
+            matchItem={TEST_MATCH_ITEM}
+            onDeleteButtonClick={mockedDeleteHandler}
+            onUpdateButtonClick={mockedUpdateHandler}
+          />
+        </tbody>
+      </table>
+    );
 
     expect(screen.getByText(HOME_TEAM_SCORE)).toBeInTheDocument();
     expect(screen.getByText(AWAY_TEAM_SCORE)).toBeInTheDocument();
@@ -33,7 +43,17 @@ describe('MatchRow', () => {
   });
 
   it('should render `Delete` button and launch  handler with params`', () => {
-    render(<MatchRow matchItem={TEST_MATCH_ITEM} />);
+    render(
+      <table>
+        <tbody>
+          <MatchRow
+            matchItem={TEST_MATCH_ITEM}
+            onDeleteButtonClick={mockedDeleteHandler}
+            onUpdateButtonClick={mockedUpdateHandler}
+          />
+        </tbody>
+      </table>
+    );
 
     const button = screen.getByRole('button', { name: 'Delete' });
     expect(button).toBeInTheDocument();
@@ -45,12 +65,22 @@ describe('MatchRow', () => {
   });
 
   it('should render `Update` button and launch  handler with params`', () => {
-    render(<MatchRow matchItem={TEST_MATCH_ITEM} />);
+    render(
+      <table>
+        <tbody>
+          <MatchRow
+            matchItem={TEST_MATCH_ITEM}
+            onDeleteButtonClick={mockedDeleteHandler}
+            onUpdateButtonClick={mockedUpdateHandler}
+          />
+        </tbody>
+      </table>
+    );
 
-    const button = screen.getByRole('button', { name: 'Delete' });
+    const button = screen.getByRole('button', { name: 'Update' });
     fireEvent.click(button);
     expect(mockedUpdateHandler).toBeCalledTimes(1);
     expect(mockedDeleteHandler).toBeCalledTimes(0);
-    expect(mockedDeleteHandler).toBeCalledWith(TEST_MATCH_ITEM);
+    expect(mockedUpdateHandler).toBeCalledWith(TEST_MATCH_ITEM);
   });
 });
