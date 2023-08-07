@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface Interface {
+interface IAddingFormProps {
   onSubmit: ({ awayTeamName: string, homeTeamName: string }) => void;
   onCancel: () => void;
 }
