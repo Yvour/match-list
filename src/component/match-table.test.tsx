@@ -31,7 +31,6 @@ describe('MatchTable', () => {
     render(<MatchTable list={LIST} />);
 
     expect(screen.getAllByRole('row')).toHaveLength(3);
-
-    expect(screen.getAllByRole(button)).toHaveLength(6);
+    expect(screen.getAllByRole('button')).toHaveLength(6);
   });
 });
