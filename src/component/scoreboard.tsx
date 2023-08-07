@@ -5,6 +5,7 @@ import { createMatch } from '../utils/create';
 import { AddingForm } from './adding-form';
 import { UpdatingForm } from './updating-form';
 import { updateMatch } from '../utils/update';
+import { deleteMatch } from '../utils/delete';
 
 interface IScoreboardProps {
   initialList: IMatchListEntry[];
@@ -48,6 +49,11 @@ export const Scoreboard = (props: IScoreboardProps) => {
     setIsUpdating(false);
   };
 
+  const onDeleteButtonClick = (id: string) => {
+    const modifiedList = deleteMatch(list, id);
+    setList(modifiedList);
+  };
+
   return (
     <div>
       {isAdding ? (
@@ -61,7 +67,11 @@ export const Scoreboard = (props: IScoreboardProps) => {
         />
       ) : null}
       <button onClick={showAddingForm}>Add</button>
-      <MatchTable list={list} onUpdateButtonClick={onUpdateButtonClick} />
+      <MatchTable
+        list={list}
+        onUpdateButtonClick={onUpdateButtonClick}
+        onDeleteButtonClick={onDeleteButtonClick}
+      />
     </div>
   );
 };
