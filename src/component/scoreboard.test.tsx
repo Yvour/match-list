@@ -112,4 +112,25 @@ describe('Scoreboard', () => {
     expect(screen.getByText(NEW_HOME_TEAM_SCORE)).toBeInTheDocument();
     expect(screen.getByText(NEW_AWAY_TEAM_SCORE)).toBeInTheDocument();
   });
+
+  it('should allow remove a match via `Delete` buttons', async () => {
+    expect;
+
+    render(<Scoreboard initialList={LIST} />);
+
+    // Check the row to be deleted
+    expect(screen.getByText('Team Three')).toBeInTheDocument();
+    expect(screen.getByText('Team Four')).toBeInTheDocument();
+
+    expect(screen.getAllByRole('button', { name: 'Delete' })).toHaveLength(3);
+    const deleteButton = screen.getAllByRole('button', { name: 'Delete' })[1];
+
+    await fireEvent.click(deleteButton);
+
+    expect(screen.getAllByRole('row')).toHaveLength(2);
+
+    // Check the row was visually deleted
+    expect(screen.queryByText('Team Three')).not.toBeInTheDocument();
+    expect(screen.queryByText('Team Four')).not.toBeInTheDocument();
+  });
 });
