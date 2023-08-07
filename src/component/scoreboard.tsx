@@ -6,6 +6,7 @@ import { AddingForm } from './adding-form';
 import { UpdatingForm } from './updating-form';
 import { updateMatch } from '../utils/update';
 import { deleteMatch } from '../utils/delete';
+import { summarize } from '../utils/summarize';
 
 interface IScoreboardProps {
   initialList: IMatchListEntry[];
@@ -54,6 +55,10 @@ export const Scoreboard = (props: IScoreboardProps) => {
     setList(modifiedList);
   };
 
+  const summarizedList = React.useMemo(() => {
+    return summarize(list);
+  }, [list]);
+
   return (
     <div>
       {isAdding ? (
@@ -68,7 +73,7 @@ export const Scoreboard = (props: IScoreboardProps) => {
       ) : null}
       <button onClick={showAddingForm}>Add</button>
       <MatchTable
-        list={list}
+        list={summarizedList}
         onUpdateButtonClick={onUpdateButtonClick}
         onDeleteButtonClick={onDeleteButtonClick}
       />
