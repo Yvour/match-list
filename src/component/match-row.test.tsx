@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { MatchRow } from './match-row';
 import { IMatchListEntry } from '../types/types';
 
