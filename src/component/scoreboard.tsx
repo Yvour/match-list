@@ -60,23 +60,41 @@ export const Scoreboard = (props: IScoreboardProps) => {
   }, [list]);
 
   return (
-    <div>
-      {isAdding ? (
-        <AddingForm onCancel={closeAddingForm} onSubmit={submitAddingForm} />
-      ) : null}
-      {isUpdating ? (
-        <UpdatingForm
-          onCancel={onUpdateCancel}
-          onSubmit={onUpdateFormSubmit}
-          matchEntry={editFormEntry}
-        />
-      ) : null}
-      <button onClick={showAddingForm}>Add</button>
-      <MatchTable
-        list={summarizedList}
-        onUpdateButtonClick={onUpdateButtonClick}
-        onDeleteButtonClick={onDeleteButtonClick}
-      />
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '80vh',
+      }}
+    >
+      <div>
+        {isAdding ? (
+          <AddingForm onCancel={closeAddingForm} onSubmit={submitAddingForm} />
+        ) : null}
+        {isUpdating ? (
+          <UpdatingForm
+            onCancel={onUpdateCancel}
+            onSubmit={onUpdateFormSubmit}
+            matchEntry={editFormEntry}
+          />
+        ) : null}
+        {!isUpdating && !isAdding ? (
+          <div>
+            <h1>Scoreboard</h1>
+            <div>
+              Currently {summarizedList.length} match
+              {summarizedList.length === 1 ? '' : 's'} tracked on the board
+            </div>
+            <button onClick={showAddingForm}>Add</button>
+            <MatchTable
+              list={summarizedList}
+              onUpdateButtonClick={onUpdateButtonClick}
+              onDeleteButtonClick={onDeleteButtonClick}
+            />
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 };
