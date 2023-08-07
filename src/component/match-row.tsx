@@ -25,7 +25,7 @@ export const MatchRow = ({
     <tr>
       <td>{homeTeam.name} </td>
       <td>{homeTeam.score} </td>
-      <td>{'&nbsp;'} </td>
+      <td>{'\u00A0'}</td>
       <td>{awayTeam.name} </td>
       <td>{awayTeam.score} </td>
       <td>
