@@ -21,4 +21,12 @@ describe('AddingForm', () => {
     expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Cancel' })).toBeInTheDocument();
   });
+
+  it('should call handler if `Cancel` cliked', () => {
+    const button = screen.getByRole('button', { name: 'Cancel' });
+
+    fireEvent.click(button);
+    expect(mockedOnCancel).toBeCalledTimes(1);
+    expect(mockedOnSubmit).toBeCalledTimes(0);
+  });
 });
